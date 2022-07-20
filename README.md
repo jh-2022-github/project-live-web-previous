@@ -85,11 +85,11 @@ Spring Security에 다양한 로그인 방법 처리 설정을 해준다.
 * 로그아웃
 * 로그인 처리 URL csrf 예외처리
 * OAuth2 로그인
-```
+```java
 http.authorizeRequests()
       ...(URL의 권한 설정)...
       .and()
-        .formLogin()                                    // form태그 기반의 로그인                                                             
+        .formLogin()                                    // form태그 기반의 로그인
         .usernameParameter("userId")                    // id 파라미터 명
         .passwordParameter("userPw")                    // pw 파라미터 명
         .loginPage("/login")                            // 로그인 페이지
@@ -101,7 +101,7 @@ http.authorizeRequests()
       .and()
         .rememberMe()                                   // 자동로그인
         .rememberMeParameter("rememberMe")              // 자동로그인 파라미터 명
-        .tokenValiditySeconds(86400 * 30)               // 쿠키 만료 시간 설정(30일)                    
+        .tokenValiditySeconds(86400 * 30)               // 쿠키 만료 시간 설정(30일)
         .userDetailsService(customUsersDetailService)   // 시스템의 사용자 계정을 조회할 때 처리 설정하는 api
         .tokenRepository(tokenRepository())             //DataSource 추가
       .and()
@@ -124,11 +124,11 @@ http.authorizeRequests()
         .userService(customOAuth2UserService);          //  소셜 로그인 성공 후 처리 구현체 등록
 ```
 ### 2-1-1. 로그인에 따른 권한 처리
-* 유저 권한 정보를 저장하는 enum 클래스를 생성하고 DB에 저장된 유저 권한의 key 값과 비교해 유저의 권한 값을 부여해준다
-* 자동 로그인 처리시에도 사용된다
+* 유저 권한 정보를 저장하는 enum 클래스를 생성하고 DB에 저장된 유저 권한의 key 값과 비교해 유저의 권한 값을 부여해준다.
+* 자동 로그인 처리시에도 사용된다.
 
 * UserType 
-```
+```java
 @Getter
 @RequiredArgsConstructor
 public enum UserRole {
@@ -147,7 +147,7 @@ public enum UserRole {
 }
 ```
 * AuthProvider, CustomUsersDetailService
-```
+```java
   /* 유저 권한 정보 넣기 */
   UserRole userRole =UserRole.fromRole(user.getUserRole());
   ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
