@@ -61,29 +61,21 @@
 * 혼자 새롭게 기획하고 제작하기엔 많은 기간이 소요될 것 같아서 웹 디자인과 라이브 서비스는 네이버 쇼핑 라이브를 개인적으로 분석해 클론 코딩 하였으며, 장바구니, 구매페이지는 오늘의 쇼핑 웹 디자인을 참고 하였습니다.
 
 ## 1-2. 개발 환경
-개발 언어 : 
-Front-end : <img src="https://img.shields.io/badge/HTML-9187ff?style=flat-square&logo=HTML5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS-ff6384?style=flat-square&logo=CSS3&logoColor=white"/> 
+<img src="https://img.shields.io/badge/Java-ea0016?style=flat-square&logo=Java&logoColor=white&width=300"> 
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/> 
+<img src="https://img.shields.io/badge/Spring-f26822?style=flat-square&logo=SpringBoot&logoColor=white"/> 
+<img src="https://img.shields.io/badge/tomcat9-7ed321?style=flat-square&logo=ApacheTomcat&logoColor=white"/> 
+<img src="https://img.shields.io/badge/NGINX-009639?style=flat-square&logo=NGINX&logoColor=white"/> 
+<img src="https://img.shields.io/badge/FFmpeg-9999FF?style=flat-square&logo=FFmpeg&logoColor=white"/> 
+<img src="https://img.shields.io/badge/Socket-010101?style=flat-square&logo=Socket&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> 
 <img src="https://img.shields.io/badge/Javascript-9187ff?style=flat-square&logo=Javascript&logoColor=white"/>
 <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jQueryt&logoColor=white"/>
 
-Application Platforms: 
-Database : <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/> 
-Platform as Service: 
-<img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white">
+<img src="https://img.shields.io/badge/AWS-343434?style=flat-square&logo=AmazonAWS&logoColor=white"/> 
 
-<img src="https://img.shields.io/badge/Java-ea0016?style=flat-square&logo=Java&logoColor=white&width=300"> 
-<img src="https://img.shields.io/badge/Spring-f26822?style=flat-square&logo=SpringBoot&logoColor=white"/> 
-<img src="https://img.shields.io/badge/tomcat8.5-7ed321?style=flat-square&logo=ApacheTomcat&logoColor=white"/> 
-
-
-<img src="https://img.shields.io/badge/JSP-00aeef?style=flat-square"/> 
-<img src="https://img.shields.io/badge/JSTL-3333ff?style=flat-square"/> 
-<img src="https://img.shields.io/badge/MyBatis-9933cc?style=flat-square"/>
-<img src="https://img.shields.io/badge/Ajax-2bb24c?style=flat-square"/>
-
-<img src="https://img.shields.io/badge/jQuery-179c7d?style=flat-square&logo=jQuery&logoColor=white"/> 
-<img src="https://img.shields.io/badge/AWS-343434?style=flat-square&logo=AmazonAWS&logoColor=white"/> <img src="https://img.shields.io/badge/OpenWeather-ff6384?style=flat-square"/> <img src="https://img.shields.io/badge/WebSocket-3333ff?style=flat-square"/>
 ## 1-3. DB 모델링
 
 ## 1-4. 실행 영상
