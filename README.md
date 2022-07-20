@@ -1,7 +1,7 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=PROJECT.%20LIVE%20Web%20Site%20&fontSize=60&animation=fadeIn&fontAlignY=38&desc=Decorate%20GitHub%20Profile%20or%20any%20Repo%20like%20me!&descAlignY=51&descAlign=62)
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=PROJECT.%20Livecommerce%20&fontSize=60&animation=fadeIn&fontAlignY=38&desc=Livecommerce%20Website%20clone%20project&descAlignY=51&descAlign=62)
 
 
-# PROJECT. 라이브 커머스 클론 프로젝트💻
+# PROJECT. 라이브 커머스 웹사이트 클론 프로젝트💻
 
 > 2021.05.16 - 07.20  
 > 개발인원 : 1명
@@ -124,9 +124,43 @@ http.authorizeRequests()
         .userService(customOAuth2UserService);          //  소셜 로그인 성공 후 처리 구현체 등록
 ```
 ### 2-1-1. 로그인에 따른 권한 처리
-* 유저의 권한을 따로 저장해 DB에 저장된 유저 권한의 key 값으로 권한 role값을 부여해준다
+* 유저 권한 정보를 저장하는 enum 클래스를 생성하고 DB에 저장된 유저 권한의 key 값과 비교해 유저의 권한 값을 부여해준다
+* 자동 로그인 처리시에도 사용된다
+
+* UserType 
 ```
+@Getter
+@RequiredArgsConstructor
+public enum UserRole {
+    GUEST("ROLE_GUEST","10","손님"),
+    MEMBER("ROLE_MEMBER","11","정회원"), 
+    EMPLOYEE("ROLE_EMPLOYEE","12","기업회원"),
+    ADMIN("ROLE_ADMIN","13","관리자"), 
+    UNKNOWN("UNKNOWN","",""),
+    STOP("ROLE_STOP","99","블럭계정");
+    
+    private final String role;
+    private final String key;
+    private final String title;
+    
+    ...
+}
 ```
+* AuthProvider, CustomUsersDetailService
+```
+  /* 유저 권한 정보 넣기 */
+  UserRole userRole =UserRole.fromRole(user.getUserRole());
+  ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+  if(UserRole.MEMBER.getKey().equals(user.getUserRole())) {
+      authorities.add(new SimpleGrantedAuthority(UserRole.MEMBER.getRole()));
+  }else if(UserRole.EMPLOYEE.getKey().equals(user.getUserRole())) {
+      authorities.add(new SimpleGrantedAuthority(UserRole.EMPLOYEE.getRole()));
+  }else {
+      authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getRole()));
+  }
+```
+
 ### 2-1-2. OAuth2를 이용한 SNS 로그인
 * OAuth2UserService를 상속 받는 클래스를 생성해 로그인 하려는 SNS에 대한 정보를 가져와 
 ```
