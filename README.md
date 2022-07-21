@@ -8,7 +8,7 @@
 >
 > 최근 비대면이 일상화되면서 자연스레 언택트 시대를 맞이하게 되었습니다. 그로인해 온라인 쇼핑이 크게 성장 하였고 현재 라이브커머스가 큰 관심을 받고 있습니다.   
 >
-> 그래서 이번 포트폴리오를 라이브 커머스 서비스로 중점을 두어 개발하였습니다.  네이버 쇼핑 라이브의 웹 디자인과 기능을 개인적으로 분석해 클론 코딩 프로젝트를 진행하였습니다.
+> 그래서 이번 포트폴리오를 라이브 커머스 서비스로 중점을 두어 개발하였습니다.  네이버 쇼핑 라이브의 기능과 웹 디자인을 개인적으로 분석해 클론 코딩 프로젝트를 진행하였습니다.
 
 ## ❓ 목차
 
@@ -127,12 +127,11 @@ http.authorizeRequests()
 * 유저 권한 정보를 저장하는 enum 클래스를 생성하고 DB에 저장된 유저 권한의 key 값과 비교해 유저의 권한 값을 부여해준다.
 * 자동 로그인 처리시에도 사용된다.
 
-* UserType 
+[UserRole.java] 
 ```java
 @Getter
 @RequiredArgsConstructor
 public enum UserRole {
-    GUEST("ROLE_GUEST","10","손님"),
     MEMBER("ROLE_MEMBER","11","정회원"), 
     EMPLOYEE("ROLE_EMPLOYEE","12","기업회원"),
     ADMIN("ROLE_ADMIN","13","관리자"), 
@@ -148,17 +147,27 @@ public enum UserRole {
 ```
 * AuthProvider, CustomUsersDetailService
 ```java
+   ... 
+
   /* 유저 권한 정보 넣기 */
   UserRole userRole =UserRole.fromRole(user.getUserRole());
   ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-  if(UserRole.MEMBER.getKey().equals(user.getUserRole())) {
-      authorities.add(new SimpleGrantedAuthority(UserRole.MEMBER.getRole()));
+  if(UserRole.MEMBER.getKey().equals(user.getUserRole())) {                         //UserRole의 key값과 DB에 저장된 유저의 Role 값을 비교해
+      authorities.add(new SimpleGrantedAuthority(UserRole.MEMBER.getRole()));       //일치하는 UserRole 값을 부여해준다
   }else if(UserRole.EMPLOYEE.getKey().equals(user.getUserRole())) {
       authorities.add(new SimpleGrantedAuthority(UserRole.EMPLOYEE.getRole()));
-  }else {
+  }else if(UserRole.ADMIN.getKey().equals(user.getUserRole())){
       authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getRole()));
+  }else if(UserRole.STOP.getKey().equals(user.getUserRole())) {
+      authorities.add(new SimpleGrantedAuthority(UserRole.STOP.getRole()));
+  }else{
+      authorities.add(new SimpleGrantedAuthority(UserRole.UNKNOWN.getRole()));
   }
+  
+  user.setAuthorities(authorities);       // 부여 받은 Role 값은 UserVo에 넣어준다
+  user.setUserPw(null);                   // 사용자의 비밀번호 값은 비워준다.
+  ... 
 ```
 
 ### 2-1-2. OAuth2를 이용한 SNS 로그인
