@@ -33,16 +33,18 @@ public class CustomUsersDetailService implements UserDetailsService{
         UserRole userRole =UserRole.fromRole(user.getUserRole());
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         
-        if(UserRole.MEMBER.getRole().equals(user.getUserRole())) {
-            user.setUserRole(UserRole.MEMBER.getRole());
+        if(UserRole.MEMBER.getKey().equals(user.getUserRole())) {
             authorities.add(new SimpleGrantedAuthority(UserRole.MEMBER.getRole()));
-        }else if(UserRole.EMPLOYEE.getRole().equals(user.getUserRole())) {
-            user.setUserRole(UserRole.EMPLOYEE.getRole());
+        }else if(UserRole.EMPLOYEE.getKey().equals(user.getUserRole())) {
             authorities.add(new SimpleGrantedAuthority(UserRole.EMPLOYEE.getRole()));
-        }else {
-            user.setUserRole(UserRole.ADMIN.getRole());
+        }else if(UserRole.ADMIN.getKey().equals(user.getUserRole())){
             authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getRole()));
+        }else if(UserRole.STOP.getKey().equals(user.getUserRole())) {
+            authorities.add(new SimpleGrantedAuthority(UserRole.STOP.getRole()));
+        }else{
+            authorities.add(new SimpleGrantedAuthority(UserRole.UNKNOWN.getRole()));
         }
+        
         user.setAuthorities(authorities);
         user.setUserPw(null);
         

@@ -31,7 +31,7 @@ public class LoginService{
         UserVo.SignUpVo platform = new UserVo.SignUpVo();
         platform.setUserPlatform("onl_home");
         //UserVo.SignUp join = new UserVo.SignUp();
-        user.setUserRole(UserRole.MEMBER.getRole());
+        user.setUserRole(UserRole.MEMBER.getKey());
         user.setSignUpVo(platform);
         String nick = user.getUserId();
         user.setUserNickname(nick.substring(0,nick.lastIndexOf("@")));

@@ -56,12 +56,16 @@ public class AuthProvider implements AuthenticationProvider{
         UserRole userRole =UserRole.fromRole(user.getUserRole());
         ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-        if(UserRole.MEMBER.getRole().equals(user.getUserRole())) {
+        if(UserRole.MEMBER.getKey().equals(user.getUserRole())) {
             authorities.add(new SimpleGrantedAuthority(UserRole.MEMBER.getRole()));
-        }else if(UserRole.EMPLOYEE.getRole().equals(user.getUserRole())) {
+        }else if(UserRole.EMPLOYEE.getKey().equals(user.getUserRole())) {
             authorities.add(new SimpleGrantedAuthority(UserRole.EMPLOYEE.getRole()));
-        }else {
+        }else if(UserRole.ADMIN.getKey().equals(user.getUserRole())){
             authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getRole()));
+        }else if(UserRole.STOP.getKey().equals(user.getUserRole())) {
+            authorities.add(new SimpleGrantedAuthority(UserRole.STOP.getRole()));
+        }else{
+            authorities.add(new SimpleGrantedAuthority(UserRole.UNKNOWN.getRole()));
         }
 
         /* 인증 로직 진행 후 비밀번호 값 삭제 */

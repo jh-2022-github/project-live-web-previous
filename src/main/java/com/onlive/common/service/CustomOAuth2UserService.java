@@ -55,6 +55,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
         /* 로그인 서비스 구분 :  네이버, 카카오 등*/
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
+        
         /*로그인 진행 시 키가 되는 필드값(PK와 같은 의미*/
         /* 구글은 기본적으로 코드 지원; 네이버, 카카오는 기본 지원 안함 */
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
@@ -65,7 +66,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         
         /* sns에서 가져온 정보 UserVo에 담기 = SNS 정보를 가지고 있음*/
         UserVo user = userInfo(attributes);
-        System.out.println("user : "+user);
+
         /* 유저 아이디 존재 확인 = DB 정보를 가지고 있음*/
         SNSUserVo snsUser = repository.findByUserId(attributes.getUserId()).orElse(null);
         /* DB정보가 없으면 SNS에서 가져온 정보로 회원가입하기 */
@@ -83,8 +84,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
-        System.out.println("map : "+map);
-        System.out.println("attributes : "+attributes);
+
         /* NameAttributeKey 값을 key로 넣어줘야함 */
         map.put(attributes.getNameAttributeKey(), attributes.getNameAttributeKey());
         /* snsUser가 가지고 있는 유저 비밀번호,클래스 데이터 삭제 */
@@ -152,7 +152,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         if(result == 1) {
             snsUser = repository.findByUserId(user.getUserId()).orElse(null); 
         }
-
         return snsUser;
     }
 //    private SNSUserVo saveOrUpdate(UserVo user) {
