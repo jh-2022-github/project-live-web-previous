@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.mail.MessagingException;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import com.onlive.common.vo.SendCodeVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.nurigo.java_sdk.api.Message;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Slf4j
 @Service
@@ -56,11 +58,11 @@ public class CodeMessageService {
         params.put("app_version", "test app 1.2");  // application name and version
         
         // 문자전송 코드 - 주석처리 풀면 실제로 문자 전송 됨
-//        try {
-//            JSONObject obj = sms.send(params);
-//        } catch (CoolsmsException e) {
-//            log.debug(e.getMessage(),e.getCode());
-//        }
+        try {
+            JSONObject obj = sms.send(params);
+        } catch (CoolsmsException e) {
+            log.debug(e.getMessage(),e.getCode());
+        }
         return sendCodeMapper.sendCodeHistory(sendCodeVo);
     }
 

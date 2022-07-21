@@ -121,10 +121,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .tokenRepository(tokenRepository())             //DataSource 추가
                 .and()
                     .logout()                                       // 로그아웃 기능 설정 진입점
-                    .logoutUrl("/logout")                           // 로그아웃 성공 시 입력한 주소로 리다이렉트
-                    .logoutSuccessUrl("/")
+                    .logoutUrl("/logout")                           // 로그아웃 처리 URL
+                    .logoutSuccessUrl("/")                          // 로그아웃 성공 시 입력한 주소로 리다이렉트
                     .invalidateHttpSession(true)                    // 세션 정보 삭제
-                    .deleteCookies("JSESSIONID","rememberMe")       //로그아웃 후 자동 로그인 쿠키 삭제
+                    .deleteCookies("JSESSIONID","rememberMe")       // 로그아웃 후 자동 로그인 쿠키 삭제
                     .permitAll()
 //                .and()  // csrf를 설정하여 사용할 경우 특정 URL 외부 프로그램등에서 POST 방식으로 서버 접근시 403에러 발생
 //                    .csrf().disable()                             // csrf 미적용
