@@ -1,23 +1,22 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=PROJECT.%20Livecommerce%20&fontSize=60&animation=fadeIn&fontAlignY=38&desc=Livecommerce%20Website%20clone%20project&descAlignY=51&descAlign=62)
-
+![logo](https://user-images.githubusercontent.com/86868936/180720947-d2a9c43c-d7f9-43cf-ae7f-7b56c6727002.png)
 
 # PROJECT. 라이브 커머스 웹사이트 클론 프로젝트💻
 
-> 2021.05.16 - 07.20  
-> 개발인원 : 1명
+> 📅2021.05.16 - 07.20  
+> 😃개발인원 : 1명
 >
-> 라이브 커머스 서비스로 중점을 두어 프로젝트를 개발하였으며, 네이버 쇼핑라이브의 기능과 웹 디자인을 개인적으로 분석해 클론 코딩 프로젝트를 진행하였습니다.
+> 라이브 커머스 서비스로 중점을 두어 프로젝트를 개발하였으며, 네이버 쇼핑라이브 사이트를 개인적으로 분석해 클론 코딩 프로젝트를 진행하였습니다.
 
-# ❓ 목차
+# 📌목차
 
-## 1. 프로젝트 소개    
-> 1-1.  [프로젝트 제작 계기](#1-1-프로젝트-제작-계기)   
+## 💡1. 프로젝트 소개    
+> 1-1.  [프로젝트 제작 계기 및 참고](#1-1-프로젝트-제작-계기-및-참고)   
 > 1-2.  [프로젝트 주요 기능](#1-2-프로젝트-주요-기능)  
 > 1-3.  [개발 환경](#1-3-개발-환경)  
 > 1-4.  [DB 모델링](#1-4-DB-모델링)  
-> 1-5.  [실행 영상](#1-5-실행-영상)  
+> 1-5.  [사이트 주소 및 실행 영상](#1-5-사이트-주소-및-실행-영상)  
 
-## 2. 프로젝트 주요 기능
+## 💡2. 프로젝트 주요 기능
 ### 2-1. 로그인 서비스  
 > 2-1-1. [로그인에 따른 권한 처리](#2-1-1-로그인에-따른-권한-처리)  
 > 2-1-2. [OAuth2와 JPA를 이용한 SNS 로그인](#2-1-2-OAuth2와-JPA를-이용한-SNS-로그인)  
@@ -29,58 +28,91 @@
 > 2-2-5. [라이브 종료 후 추출한 영상 보여주기](#2-2-5-라이브-종료-후-추출한-영상-보여주기)
 ### 2-3. 채팅 서비스
 > 2-3-1. [라이브 채팅방 설정](#2-3-1-라이브-채팅방-설정)  
-> 2-3-2. [채팅방 인원수 표시](#2-3-2-채팅방-인원수-표시)
+> 2-3-2. [채팅방 인원수 표시](#2-3-2-채팅방-인원수-표시)  
 > 2-3-3. [판매자 채팅](#2-3-3-판매자-채팅-)
 ### 2-4. 상품 선택 및 장바구니
-### 2-5. 구매페이지 - 결제 API를 이용한 구매 서비스
-### 2-6. 마이페이지 - 구매 내역
+> 2-4-1. [상품 선택 및 장바구니](#2-4-1-상품-선택-및-장바구니)
+### 2-5. 구매서비스
+> 2-5-1. [결제 API를 이용한 구매 서비스](#2-5-1-결제-API를-이용한-구매-서비스)
+### 2-6. 마이페이지
+> 2-6-1. [구매 내역](#2-6-1-구매-내역)
 ### 2-7. 판매자 관리툴
-> 2-7-1. 라이브 등록-[우리동네라이브] 지역 설정
-## 3. 추후 개선할 사항
+> 2-7-1. [라이브 등록:<우리동네라이브> 지역 설정](#2-7-1-라이브-등록:<우리동네라이브>-지역-설정)
+## 💡3. 추후 개선할 사항
 
 ---
-# 1. 프로젝트 소개
+# 📑1. 프로젝트 소개
 ## 1-1. 프로젝트 제작 계기 및 참고 
-* 라이브 서비스를 구현해보고 싶어서 처음에는 우리동네 홍보 스트리밍 서비스를 계획했지만 쇼핑과 결합된 라이브 커머스가 현재 큰 관심 중 하나라 생각하여 라이브 커머스 웹 프로젝트를 진행하기로 했습니다.
+* 라이브 서비스를 구현해 보고 싶어서 처음에는 <u>우리 동네 홍보 스트리밍 서비스</u>를 계획했지만,  
+ 쇼핑과 결합된 라이브 커머스가 현재 큰 관심 중 하나라 생각하여 <u>라이브 커머스 웹 프로젝트</u>를 진행하기로 했습니다.
 
-* 혼자 새롭게 기획하고 제작하기엔 많은 기간이 소요될 것 같아서 웹 디자인과 라이브 서비스는 네이버 쇼핑 라이브를 개인적으로 분석해 클론 코딩 하였으며, 장바구니, 구매페이지는 오늘의 쇼핑 웹 디자인을 참고 하였습니다. 
+* 혼자 새롭게 기획하고 제작하기엔 많은 기간이 소요될 것 같아 **네이버 쇼핑 라이브** 사이트를 개인적으로 분석해 클론 코딩하였습니다.
+* 프로젝트 내 상품 이미지와 영상 출처는  네이버 쇼핑라이브 사이트 입니다.
 
 ## 1-2. 프로젝트 주요 기능
-1. 편의성과 소통성
-* 실시간 영상과 실시간 채팅 기능으로 제품에 대한 정보를 좀 더 상세히 보여주면서 질문에 대한 답을 바로 제공합니다.
+ ⭕ 편의성과 소통성
+  * 실시간 스트리밍 영상과 채팅 서비스로 비대면이지만 판매자와 소비자 간의 실시간 소통이 가능하며,  
+ 직접 매장에 가지 않아도 상품을 상세하게 알 수 있고 즉시 구매가 가능합니다.
 
-2. 효율성
-* 실시간 방송이 끝나도 해당 영상을 다시 보여줌으로써 소비자에게 지속적인 서비스를 제공합니다.
-* 또한 라이브를 보면서 구매할 수 있게 하단에 제품글을 누르면 제품 소개 및 구매 창이 팝업 형식으로 보여줄 수 있게 하였습니다.
+⭕ 효율성
+  * 실시간 방송이 끝나도 해당 영상을 다시 보여줌으로써 소비자에게 지속적인 서비스를 제공합니다.
+  * 또한 라이브를 보면서 구매할 수 있게 하단에 제품글을 누르면 제품 소개 및 구매 창이 팝업 형식으로 구성되어 있습니다.
 
-3. 제품 관리 편리성
-* 판매글을 올렸을 때 동일한 상품에 대한 상품명과 금액을 동일시 하기 위해 제품 등록과 판매글 등록을 구분하였습니다.
-* 라이브 등록시 판매글을 선택해 동일한 제품을 계속 라이브 할 수 있습니다.
+⭕ 제품 관리 편리성
+  * 판매글을 올렸을 때 동일한 상품에 대한 상품명과 금액을 동일시 하기 위해 제품 등록과 판매글 등록을 구분하였습니다.
+  * 라이브 등록시 등록한 판매글을 선택해 동일한 판매글로 언제든지 라이브를 할 수 있습니다.
 
-4. 지역 홍보
-* 라이브 등록시 지역 설정 기능을 사용해 소비자가 '우리동네라이브' 탭에 접속하면 소비자 위지 정보와 동일한 판매 글을 보여줌으로써,
+⭕ 지역 홍보
+  * 소비자가 '우리동네라이브' 탭에 접속하면 소비자 위지 정보와 동일한 판매 글을 보여줌으로써,  
 해당 지역 가게 홍보에도 도움이 되는 서비스를 제공합니다.
 
-## 1-2. 개발 환경 🛠 
-<img src="https://img.shields.io/badge/JAVA-FF4DAC?style=flat-square&logo=java&logoColor=white&width=300"> <img src="https://img.shields.io/badge/MySQL-B965DF?style=flat-square&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Boot-758bfd?style=flat-square&logo=SpringBoot&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Security-0083DE?style=flat-square&logo=Spring Security&logoColor=white"/> <img src="https://img.shields.io/badge/Apache Tomcat-21B88F?style=flat-square&logo=ApacheTomcat&logoColor=white"/> <img src="https://img.shields.io/badge/NGINX-007844?style=flat-square&logo=NGINX&logoColor=white"/>
+## ⚙️1-2. 개발 환경 
+### Front-end
+<img src="https://img.shields.io/badge/HTML-FF911E?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-FF7965?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/Javascript-FF4986?style=flat-square&logo=Javascript&logoColor=white"/> <img src="https://img.shields.io/badge/jQuery-FF26AC?style=flat-square&logo=jQuery&logoColor=white"/> 
 
-<img src="https://img.shields.io/badge/FFmpeg-00BD8D?style=flat-square&logo=FFmpeg&logoColor=white"/> <img src="https://img.shields.io/badge/Socket.io-00B0D5?style=flat-square&logo=Socket.io&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon AWS-00A1FF?style=flat-square&logo=AmazonAWS&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon ECS-008CFF?style=flat-square&logo=Amazon ECS&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon S3-006BFF?style=flat-square&logo=Amazon S3&logoColor=white"/> 
+* 웹 문서의 뼈대를 구축해 디자인하고 이벤트를 넣어 웹 페이지를 구현/ 관리합니다.
+
+### Back-end
+<img src="https://img.shields.io/badge/JAVA-0DCCEB?style=flat-square&logo=java&logoColor=white&width=300">  <img src="https://img.shields.io/badge/Spring Boot-008CFF?style=flat-square&logo=SpringBoot&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Security-5C2DEB?style=flat-square&logo=Spring Security&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Data JAP-9E6AEB?style=flat-square&logo=Spring Data JPA&logoColor=white"/> <img src="https://img.shields.io/badge/Mybatis-B73FEB?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Apache Tomcat-E16AEB?style=flat-square&logo=ApacheTomcat&logoColor=white"/> 
+* 웹 애플리케이션 서버와 보안을 구축하고 라이브러리들의 버전 관리를 자동적으로 관리합니다.
+* 일부분은 JPA로 객체 지향 로직으로 개발해 보다 효율적으로 관리합니다. 
+
+### Database
+<img src="https://img.shields.io/badge/MySQL-FF26AC?style=flat-square&logo=MySQL&logoColor=white"/>
+
+* AWS RDS를 프리티어로 사용하기 위해 MySQL을 사용합니다.
+
+### Cloud Infrastructure
+<img src="https://img.shields.io/badge/Amazon AWS-00A1FF?style=flat-square&logo=AmazonAWS&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon ECS-008CFF?style=flat-square&logo=Amazon ECS&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon S3-006BFF?style=flat-square&logo=Amazon S3&logoColor=white"/> 
 <img src="https://img.shields.io/badge/Amazon RDS-4026FF?style=flat-square&logo=Amazon RDS&logoColor=white"/> 
+* EC2로 서버를 구축해 프로젝트를 배포합니다.
+* S3과 RDS로 프로젝트 내의 파일과 DB를 관리합니다.
 
-<img src="https://img.shields.io/badge/HTML-FF911E?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-FF7965?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/Javascript-FF4986?style=flat-square&logo=Javascript&logoColor=white"/> <img src="https://img.shields.io/badge/jQuery-FF26AC?style=flat-square&logo=jQuery&logoColor=white"/> <img src="https://img.shields.io/badge/Adobe Photoshop-B15AE9?style=flat-square&logo=Adobe Photoshop&logoColor=white"/> <img src="https://img.shields.io/badge/Adobe Illustrator-6E19DF?style=flat-square&logo=Adobe Illustrator&logoColor=white"/>
+### Streaming protocol/ Tool
+<img src="https://img.shields.io/badge/NGINX-2DD151?style=flat-square&logo=NGINX&logoColor=white"/>
+<img src="https://img.shields.io/badge/HLS-2DB581?style=flat-square&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/FFmpeg-2D5B81?style=flat-square&logo=FFmpeg&logoColor=white"/>
 
-## 1-3. DB 모델링
+* NGINX의 외부 모듈 RTMP을 이용해 스트리밍 서버를 구축합니다.
+* HLS를 이용해 스트리밍 서버에 접속해 웹에 오디오 및 비디오를 배포합니다.
+* FFmpeg로 스트리밍 영상을 인코딩해 재생 가능한 영상 파일로 저장합니다.
 
 
-## 1-4. 실행 영상
+## 💾1-3. DB 모델링
+![onlshop](https://user-images.githubusercontent.com/86868936/180734739-7bad65b1-4a66-4372-8c62-3d28f1fc503d.png)
+
+## 🌏1-4. 사이트 주소 및 실행 영상
+
+구현 사이트 주소 : https://onlshop.shop
+
 
 ---
 
 # 2. 프로젝트 주요 기능 설명
-## 2-1. 로그인 서비스
-> 로그인은 form 로그인과 OAuth2 로그인을 사용하였습니다.
-> 로그인 아이디 저장 또는 자동 로그인을 선택해 적용할 수 있지만 SNS를 통한 로그인은 불가합니다.
-> 또한 아이디-비밀번호 찾기 기능도 SNS를 통한 로그인은 접속한 SNS에서 가능합니다.
+## 👉2-1. 로그인 서비스
+* 로그인은 form 로그인과 OAuth2 로그인을 사용하였습니다.
+* 로그인 아이디 저장 또는 자동 로그인을 선택해 적용할 수 있지만 SNS를 통한 로그인은 불가합니다.
+* 또한 아이디-비밀번호 찾기 기능도 SNS를 통한 로그인은 접속한 SNS에서 가능합니다.
 
 ### 2-1-1. 로그인에 따른 권한 처리
 * 유저 권한 정보를 저장하는 enum 클래스를 생성하고 DB에 저장된 유저 권한의 key 값과 비교해 유저의 권한 값을 부여해준다.
@@ -105,9 +137,6 @@ public enum UserRole {
 ```java
    ... 
   /* 유저 권한 정보 넣기 */
-  UserRole userRole =UserRole.fromRole(user.getUserRole());
-  ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
   if(UserRole.MEMBER.getKey().equals(user.getUserRole())) {                         //UserRole의 key값과 DB에 저장된 유저의 Role 값을 비교해
       authorities.add(new SimpleGrantedAuthority(UserRole.MEMBER.getRole()));       //일치하는 UserRole 값을 부여해준다
   }else if(UserRole.EMPLOYEE.getKey().equals(user.getUserRole())) {
@@ -123,8 +152,8 @@ public enum UserRole {
 ```
 
 ### 2-1-2. OAuth2와 JPA를 이용한 SNS 로그인
-* OAuth2UserService를 상속 받는 클래스를 생성해 로그인 하려는 SNS(네이버, 카카오)를 구분해 계정 정보를 받아와 
-UserVo 형태로 값을 부여했습니다. 
+* OAuth2UserService 통해 가져온 OAuth2User의 attribute를 담을 클래스를 생성합니다.
+* 로그인 하려는 SNS(네이버, 카카오)를 구분해 계정 정보를 받아와 UserVo같은 형태로 값을 넣어 OAuth2UserService를 상속 받는 클래스로 전달합니다.
 ```java
 ...
 //카카오 계정 정보 가져오기
@@ -146,7 +175,7 @@ private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String,
 ...
 
 ```
-* 넘어오는 값과 DB 값을 비교해 없으면 바로 회원 가입 처리 하였으며 DB처리에는 JPA를 사용했습니다.
+* 넘어오는 SNS 계정 정보와 DB 값을 비교해 데이터가 없으면 JPA로 바로 회원 가입 처리 합니다.
 ```java
 ...
 //회원가입
@@ -155,7 +184,7 @@ private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String,
 int insertUserInfo(@Param("userId")String userId,@Param("userPw")String userPw,@Param("userUname")String userUname
             ,@Param("userNickname")String userNickname,@Param("userPlatform")String userPlatform,@Param("userRole")String userRole);
 ```
-* UserVo 형태로 값을 넣어 유저 정보를 return 하여 form로그인과 OAuth2로그인시 저장하는 계정 정보를 동일한 코드로 사용할 수 있게 했습니다.
+* UserVo에 값을 넣어 유저 정보를 return 하여 form로그인과 OAuth2로그인시 저장하는 계정 정보를 동일한 코드로 사용할 수 있게 했습니다.
 * OAuth2User와 UserDetails를 상속 받아 UserVo형태로 값을 저장합니다.
 ```java
 public class UserVo implements OAuth2User,UserDetails{
